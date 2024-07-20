@@ -1,0 +1,24 @@
+<form id="todos" class="sortable list-disc list-inside mb-4" hx-post="{% url 'sort' list_id=todo_list.pk %}"
+                  hx-trigger="end" hx-target="#todos">
+    {% if todo_list_items %}
+                {% for task in todo_list_items %}
+                {% if task.status == "TODO" %}
+                    <div x-show="activeTab === 'todos'">
+                        {% include 'todo/partials/todo.html' %}
+                    </div>
+                {% endif %}
+                {% endfor %}
+                {% for task in todo_list_items %}
+                {% if task.status == "COMPLETE" %}
+                    <div x-show="activeTab === 'completed'">
+                        {% include 'todo/partials/todo.html' %}
+                    </div>
+                {% endif %}
+                {% endfor %}
+    {% else %}
+        <span class="flex items-center justify-center text-gray-500 bg-gray-100 p-2 rounded">No tasks to do. Enjoy your day!</span>
+    {% endif %}
+</form>
+
+{#            <span class="flex items-center justify-center text-gray-500 bg-gray-100 p-2 rounded">No completed tasks yet.</span>#}
+

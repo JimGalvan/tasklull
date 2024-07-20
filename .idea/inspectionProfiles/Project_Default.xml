@@ -1,0 +1,47 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="HtmlUnknownAttribute" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="myValues">
+        <value>
+          <list size="17">
+            <item index="0" class="java.lang.String" itemvalue="hx-post" />
+            <item index="1" class="java.lang.String" itemvalue="hx-trigger" />
+            <item index="2" class="java.lang.String" itemvalue="x-show" />
+            <item index="3" class="java.lang.String" itemvalue="x-data" />
+            <item index="4" class="java.lang.String" itemvalue="@click" />
+            <item index="5" class="java.lang.String" itemvalue="hx-target" />
+            <item index="6" class="java.lang.String" itemvalue="x-cloak" />
+            <item index="7" class="java.lang.String" itemvalue="hx-swap-oob" />
+            <item index="8" class="java.lang.String" itemvalue="hx-on--after-request" />
+            <item index="9" class="java.lang.String" itemvalue="hx-put" />
+            <item index="10" class="java.lang.String" itemvalue="x-transition:enter-end" />
+            <item index="11" class="java.lang.String" itemvalue="x-transition:leave-start" />
+            <item index="12" class="java.lang.String" itemvalue="x-transition:leave" />
+            <item index="13" class="java.lang.String" itemvalue="x-transition:enter-start" />
+            <item index="14" class="java.lang.String" itemvalue="x-transition:enter" />
+            <item index="15" class="java.lang.String" itemvalue="x-transition:leave-end" />
+            <item index="16" class="java.lang.String" itemvalue="x-on:click" />
+          </list>
+        </value>
+      </option>
+      <option name="myCustomValuesEnabled" value="true" />
+    </inspection_tool>
+    <inspection_tool class="PyPep8NamingInspection" enabled="true" level="WEAK WARNING" enabled_by_default="true">
+      <option name="ignoredErrors">
+        <list>
+          <option value="N801" />
+        </list>
+      </option>
+    </inspection_tool>
+    <inspection_tool class="PyUnresolvedReferencesInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredIdentifiers">
+        <list>
+          <option value="custom_timeout" />
+          <option value="driver" />
+          <option value="todo_app.todo_app.urls.todo" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>
