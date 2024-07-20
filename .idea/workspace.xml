@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91de027b-1d5c-4c8f-82bd-c169c67f91f0" name="Changes" comment="initial commit" />
+    <list default="true" id="91de027b-1d5c-4c8f-82bd-c169c67f91f0" name="Changes" comment="update deployment">
+      <change beforePath="$PROJECT_DIR$/.ebextensions/django.config" beforeDir="false" afterPath="$PROJECT_DIR$/.ebextensions/django.config" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -13,21 +16,21 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
-  "lastFilter": {
-    "state": "OPEN",
-    "assignee": "JimGalvan"
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;JimGalvan&quot;
   }
-}]]></component>
-  <component name="GithubPullRequestsUISettings"><![CDATA[{
-  "selectedUrlAndAccountId": {
-    "url": "https://github.com/JimGalvan/tasklull.git",
-    "accountId": "b09eb506-1155-4258-9043-c33390f0309f"
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;https://github.com/JimGalvan/tasklull.git&quot;,
+    &quot;accountId&quot;: &quot;b09eb506-1155-4258-9043-c33390f0309f&quot;
   }
-}]]></component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+}</component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2jUWv4FWVZ15f16GzlnnYLv2BTJ" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -36,20 +39,23 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.manage.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
-    "last_opened_file_path": "C:/Users/jimmy/PycharmProjects/TaskLull",
+    "last_opened_file_path": "C:/Users/jimmy/PycharmProjects/TaskLull/.ebextensions",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
     "node.js.selected.package.tslint": "(autodetect)",
     "nodejs_package_manager_path": "npm",
+    "settings.editor.selected.configurable": "com.intellij.pycharm.community.ide.impl.configuration.PythonContentEntriesConfigurable",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\jimmy\PycharmProjects\TaskLull\.ebextensions" />
       <recent name="C:\Users\jimmy\PycharmProjects\TaskLull" />
     </key>
   </component>
@@ -69,7 +75,8 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1721442364254</updated>
-      <workItem from="1721442371674" duration="673000" />
+      <workItem from="1721442371674" duration="2680000" />
+      <workItem from="1721445682073" duration="6462000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -79,7 +86,71 @@
       <option name="project" value="LOCAL" />
       <updated>1721442749077</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="workspace.xml">
+      <option name="closed" value="true" />
+      <created>1721443333095</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1721443333095</updated>
+    </task>
+    <task id="LOCAL-00003" summary="updated settings">
+      <option name="closed" value="true" />
+      <created>1721446030068</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1721446030068</updated>
+    </task>
+    <task id="LOCAL-00004" summary="update django.config">
+      <option name="closed" value="true" />
+      <created>1721448277701</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1721448277701</updated>
+    </task>
+    <task id="LOCAL-00005" summary="update settings">
+      <option name="closed" value="true" />
+      <created>1721461434796</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1721461434796</updated>
+    </task>
+    <task id="LOCAL-00006" summary="update settings">
+      <option name="closed" value="true" />
+      <created>1721463517075</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1721463517075</updated>
+    </task>
+    <task id="LOCAL-00007" summary="update settings">
+      <option name="closed" value="true" />
+      <created>1721464073948</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1721464073948</updated>
+    </task>
+    <task id="LOCAL-00008" summary="update deployment">
+      <option name="closed" value="true" />
+      <created>1721464548804</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1721464548804</updated>
+    </task>
+    <task id="LOCAL-00009" summary="update deployment">
+      <option name="closed" value="true" />
+      <created>1721464886067</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1721464886067</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -87,6 +158,14 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="initial commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="initial commit" />
+    <MESSAGE value="workspace.xml" />
+    <MESSAGE value="updated settings" />
+    <MESSAGE value="update django.config" />
+    <MESSAGE value="update settings" />
+    <MESSAGE value="update deployment" />
+    <option name="LAST_COMMIT_MESSAGE" value="update deployment" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/TaskLull$manage.coverage" NAME="manage Coverage Results" MODIFIED="1721443185254" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
 </project>
