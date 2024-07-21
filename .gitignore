@@ -140,3 +140,27 @@ GitHub.sublime-settings
 .elasticbeanstalk/*
 !.elasticbeanstalk/*.cfg.yml
 !.elasticbeanstalk/*.global.yml
+
+# Ignore PyCharm project files
+.idea/
+
+# Ignore compiled Python files
+*.pyc
+*.pyo
+*.pyd
+__pycache__/
+
+# Ignore virtual environment folders
+venv/
+env/
+ENV/
+
+# Ignore Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# Ignore macOS system files
+.DS_Store
+
+# Ignore Windows system files
+Thumbs.db
+
