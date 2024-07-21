@@ -31,7 +31,7 @@ DJANGO_SECRET_KEY = secret_dict['DJANGO_SECRET_KEY']
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = DJANGO_SECRET_KEY
 
-ALLOWED_HOST_AWS = secret_dict['ALLOWED_HOST']
+ALLOWED_HOST_AWS = secret_dict['ALLOWED_EB_HOST']
 ALLOWED_HOSTS = [ALLOWED_HOST_AWS]
 ALLOWED_HOSTS += ['tasklull.com', 'www.tasklull.com', 'taskllul-env.eba-4mm238im.us-west-2.elasticbeanstalk.com']
 
