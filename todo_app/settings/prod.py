@@ -4,8 +4,8 @@ import json
 
 from .base import *
 
-secret_name = "todo-app-db-credentials"
-region_name = "us-east-1"
+secret_name = "prod-TaskLull-postgres"
+region_name = "us-west-2"
 
 # Create a Secrets Manager client
 session = boto3.session.Session()
@@ -32,20 +32,21 @@ DJANGO_SECRET_KEY = secret_dict['DJANGO_SECRET_KEY']
 SECRET_KEY = DJANGO_SECRET_KEY
 
 ALLOWED_HOST_AWS = secret_dict['ALLOWED_HOST']
-ALLOWED_HOSTS += [ALLOWED_HOST_AWS]
-ALLOWED_HOSTS += ['tasklull.com', 'www.tasklull.com']
+ALLOWED_HOSTS = [ALLOWED_HOST_AWS]
+ALLOWED_HOSTS += ['tasklull.com', 'www.tasklull.com', 'taskllul-env.eba-4mm238im.us-west-2.elasticbeanstalk.com']
 
 secret_dict = json.loads(secret)
 # Access values from the secret dictionary
-db_user = secret_dict['USER']
-db_password = secret_dict['PASSWORD']
-db_host = secret_dict['HOST']
-db_name = secret_dict['NAME']
-db_port = secret_dict['PORT']
+db_user = secret_dict['username']
+db_password = secret_dict['password']
+db_host = secret_dict['host']
+db_name = secret_dict['dbname']
+db_port = secret_dict['port']
+db_engine = secret_dict['engine']
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
+        'ENGINE': db_engine,
         'NAME': db_name,
         'USER': db_user,
         'PASSWORD': db_password,

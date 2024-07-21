@@ -91,5 +91,3 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
-
-ALLOWED_HOSTS = ['taskllul-env.eba-4mm238im.us-west-2.elasticbeanstalk.com']
