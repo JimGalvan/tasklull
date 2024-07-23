@@ -1,10 +1,19 @@
-from django.contrib.auth.models import User
+from django.contrib.auth.models import AbstractUser, User
+from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import F
 
 
+class TaskLullUser(AbstractUser):
+
+    def save(self, *args, **kwargs):
+        if TaskLullUser.objects.filter(username__exact=self.username).exclude(pk=self.pk).exists():
+            raise ValidationError(f"The username {self.username} is already taken.")
+        super().save(*args, **kwargs)
+
+
 class ToDoList(models.Model):
-    user = models.ForeignKey(User, on_delete=models.CASCADE, related_name='todolists')
+    user = models.ForeignKey(TaskLullUser, on_delete=models.CASCADE, related_name='todolists')
     name = models.CharField(max_length=100)
     is_default = models.BooleanField(default=False)
     is_hidden = models.BooleanField(default=False)
@@ -17,6 +26,7 @@ class ToDoList(models.Model):
 
     class Meta:
         ordering = ['-created_at']
+
 
 class ToDoTask(models.Model):
     TODO = 'TODO'

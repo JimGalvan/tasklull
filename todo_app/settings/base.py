@@ -91,3 +91,10 @@ STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 SECURE_CROSS_ORIGIN_OPENER_POLICY = None
+
+AUTH_USER_MODEL = 'todo.TaskLullUser'
+
+AUTHENTICATION_BACKENDS = [
+    'todo.authentication_backends.CaseInsensitiveModelBackend',
+    'django.contrib.auth.backends.ModelBackend',
+]

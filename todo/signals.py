@@ -2,10 +2,10 @@ from django.db.models.signals import pre_delete, post_save
 from django.dispatch import receiver
 
 from .enums import DefaultToDoLists
-from .models import ToDoList, User
+from .models import ToDoList, TaskLullUser
 
 
-@receiver(post_save, sender=User)
+@receiver(post_save, sender=TaskLullUser)
 def create_default_todo_lists(sender, instance, created, **kwargs):
     if created:
         default_list_names = DefaultToDoLists.get_values()
