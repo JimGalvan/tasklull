@@ -1,8 +1,32 @@
-<div x-data="{ showEditModal: false }"
+<div x-data="{ showEditModal: false, selected: false }"
      x-init="$watch('showEditModal', new_value => {htmx.process(htmx.find('#edit-list-modal'))})"
 >
     <input type='hidden' name='todo_list_order' value='{{ todo_list.pk }}'/>
-    <div class="flex justify-between bg-white shadow overflow-hidden sm:rounded-lg mb-4 items-center">
+    <div
+            @click.away="selected = false"
+            @mousedown="if (!scrolling) timer = setTimeout(() => { selected = true }, 600)"
+            @touchstart="if (!scrolling) timer = setTimeout(() => { selected = true }, 600)"
+            @mouseup="clearTimeout(timer); selected = false"
+            @touchend="clearTimeout(timer); selected = false"
+            @wheel="scrolling = true; clearTimeout(timer); selected = false"
+            @scroll="scrolling = true; clearTimeout(timer); selected = false"
+            x-init="scrolling = false"
+            x-data="{ scrolling: false }"
+            x-on:scroll.passive="scrolling = true"
+            x-on:wheel.passive="scrolling = true"
+    >
+        <div class="flex justify-between bg-white shadow overflow-hidden sm:rounded-lg mb-4 items-center"
+             :class="{
+                                        'shadow-lg': selected,
+                                        'grayscale': selected,
+                                        'bg-gray-100': selected,
+                                        'dark:bg-gray-700': selected,
+                                        'transition-colors': true,
+                                        'duration-300': true,
+                                        'ease-in-out': true,
+                                        'display: block;': selected
+                                        }"
+        >
         <div class="flex-grow px-4 py-5 sm:px-6 flex">
             <h5 class="text-lg leading-6 font-medium text-gray-900">{{ todo_list.name }}</h5>
         </div>
@@ -20,4 +44,5 @@
     <template x-if="showEditModal">
         {% include 'todo/modals/edit_list_modal.html' %}
     </template>
+    </div>
 </div>
