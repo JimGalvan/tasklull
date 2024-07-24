@@ -123,7 +123,7 @@ def todo_list_tasks(request, list_id):
         'todo_list': todo_list,
     }
 
-    return render(request, 'todo/todo-list-tasks.html', context)
+    return render(request, 'todo/todo-list-todos.html', context)
 
 
 @login_required
