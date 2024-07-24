@@ -61,7 +61,7 @@ def add_todo(request, list_id):
         'todo_list': todo_list,
     }
 
-    return render(request, 'todo/partials/todo-tasks.html', context)
+    return render(request, 'todo/partials/todos.html', context)
 
 
 @login_required
@@ -86,16 +86,16 @@ def toggle_todo(request, list_id, todo_id):
         'todo_list_items': sorted_todos,
         'todo_list': todo_list,
     }
-    return render(request, 'todo/partials/todo-tasks.html', context)
+    return render(request, 'todo/partials/todos.html', context)
 
 
 class Login(LoginView):
-    template_name = 'registration/login.html'
+    template_name = 'user/login.html'
 
 
 class RegisterView(FormView):
     form_class = RegisterForm
-    template_name = 'registration/register.html'
+    template_name = 'user/register.html'
     success_url = reverse_lazy('login')
 
     def form_valid(self, form):
@@ -145,7 +145,7 @@ def delete_todo(request, list_id, todo_id):
         'todo_list': todo_list,
     }
 
-    return render(request, 'todo/partials/todo-tasks.html', context)
+    return render(request, 'todo/partials/todos.html', context)
 
 
 @login_required
@@ -170,7 +170,7 @@ def edit_todo(request, list_id, todo_id):
         'todo_list': todo_list,
     }
 
-    return render(request, 'todo/partials/todo-tasks.html', context)
+    return render(request, 'todo/partials/todos.html', context)
 
 
 @login_required
@@ -193,7 +193,7 @@ def sort_todos(request, list_id):
     }
 
     # Return the rendered template with the context
-    return render(request, 'todo/partials/todo-tasks.html', context)
+    return render(request, 'todo/partials/todos.html', context)
 
 
 @login_required
