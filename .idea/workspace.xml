@@ -4,21 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91de027b-1d5c-4c8f-82bd-c169c67f91f0" name="Changes" comment="update deployment">
-      <change afterPath="$PROJECT_DIR$/todo/authentication_backends.py" afterDir="false" />
+    <list default="true" id="91de027b-1d5c-4c8f-82bd-c169c67f91f0" name="Changes" comment="deployment settings">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manage.py" beforeDir="false" afterPath="$PROJECT_DIR$/manage.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/__init__.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo/forms.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/forms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/migrations/0001_initial.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/migrations/0002_alter_todolist_user.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/migrations/0003_todolist_is_default_todolist_is_hidden_and_more.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/migrations/0004_todotask_sort_timestamp.py" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/migrations/0005_todotask_order_alter_todotask_sort_timestamp.py" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/todo/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/signals.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/signals.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_app/.env" beforeDir="false" afterPath="$PROJECT_DIR$/todo_app/.env" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo_app/settings/base.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo_app/settings/base.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -260,7 +249,31 @@
       <option name="project" value="LOCAL" />
       <updated>1721708888774</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="fixes for case insensitive usernames">
+      <option name="closed" value="true" />
+      <created>1721712765444</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1721712765444</updated>
+    </task>
+    <task id="LOCAL-00018" summary="deployment settings">
+      <option name="closed" value="true" />
+      <created>1721712811207</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1721712811207</updated>
+    </task>
+    <task id="LOCAL-00019" summary="deployment settings">
+      <option name="closed" value="true" />
+      <created>1721712936686</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1721712936686</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -273,10 +286,12 @@
     <MESSAGE value="update django.config" />
     <MESSAGE value="update settings" />
     <MESSAGE value="update deployment" />
-    <option name="LAST_COMMIT_MESSAGE" value="update deployment" />
+    <MESSAGE value="fixes for case insensitive usernames" />
+    <MESSAGE value="deployment settings" />
+    <option name="LAST_COMMIT_MESSAGE" value="deployment settings" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TaskLull$base.coverage" NAME="base Coverage Results" MODIFIED="1721709426918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/todo_app/settings" />
-    <SUITE FILE_PATH="coverage/TaskLull$manage.coverage" NAME="manage Coverage Results" MODIFIED="1721711474252" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/TaskLull$manage.coverage" NAME="manage Coverage Results" MODIFIED="1721780772319" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

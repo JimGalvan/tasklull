@@ -2,6 +2,7 @@ from django.contrib.auth.models import AbstractUser, User
 from django.core.exceptions import ValidationError
 from django.db import models
 from django.db.models import F
+from django import forms
 
 
 class TaskLullUser(AbstractUser):
@@ -9,6 +10,10 @@ class TaskLullUser(AbstractUser):
     def save(self, *args, **kwargs):
         if TaskLullUser.objects.filter(username__exact=self.username).exclude(pk=self.pk).exists():
             raise ValidationError(f"The username {self.username} is already taken.")
+
+        if TaskLullUser.objects.filter(email__exact=self.email).exclude(pk=self.pk).exists():
+            raise forms.ValidationError(f"The email {self.email} is already in use.")
+
         super().save(*args, **kwargs)
 
 
