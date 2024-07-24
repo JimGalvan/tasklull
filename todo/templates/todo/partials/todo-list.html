@@ -1,6 +1,7 @@
 <div x-data="{ showEditModal: false }"
      x-init="$watch('showEditModal', new_value => {htmx.process(htmx.find('#edit-list-modal'))})"
 >
+    <input type='hidden' name='todo_list_order' value='{{ todo_list.pk }}'/>
     <div class="flex justify-between bg-white shadow overflow-hidden sm:rounded-lg mb-4 items-center">
         <div class="flex-grow px-4 py-5 sm:px-6 flex">
             <h5 class="text-lg leading-6 font-medium text-gray-900">{{ todo_list.name }}</h5>

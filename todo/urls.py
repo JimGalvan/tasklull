@@ -13,11 +13,13 @@ urlpatterns = [
 ]
 
 todo_list_urlpatterns = [
+    path('todo-lists-view/', views.todo_list_view, name='todo_list_view'),
     path('todo-lists/', views.todo_lists, name='todo_lists'),
+    path('todo-lists/sort/', views.sort_todo_lists, name='sort_todo_lists'),
     path('todo-lists/<int:list_id>/hide/', hide_todo_list, name='hide_todo_list'),
     path('todo-lists/<int:list_id>/todo-tasks/', views.todo_list_tasks, name='todo_list_tasks'),
     path('todo-lists/<int:list_id>/set-main/', set_main_todo_list, name='set_main_todo_list'),
-    path('todo-lists/<int:list_id>/sort/', views.sort_todo_list, name='sort'),
+    path('todo-lists/<int:list_id>/sort/', views.sort_todos, name='sort'),
     path('todo-lists/<int:list_id>/delete/', views.delete_todo_list, name='delete_todo_list'),
     path('todo-lists/<int:list_id>/edit/', views.edit_todo_list, name='edit_todo_list'),
     path('todo-lists/add/', views.add_todo_list, name='add_todo_list'),
