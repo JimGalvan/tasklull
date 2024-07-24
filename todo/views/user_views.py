@@ -1,0 +1,32 @@
+from django.contrib.auth.decorators import login_required
+from django.contrib.auth.views import LoginView
+from django.shortcuts import render
+from django.urls import reverse_lazy
+from django.views.generic import FormView
+
+from todo.forms import RegisterForm
+from todo.models import ToDoTask
+
+
+def index(request):
+    todos = ToDoTask.objects.all()
+    return render(request, 'index.html', {'todos': todos, 'completed_todos': None})
+
+
+class Login(LoginView):
+    template_name = 'user/login.html'
+
+
+class RegisterView(FormView):
+    form_class = RegisterForm
+    template_name = 'user/register.html'
+    success_url = reverse_lazy('login')
+
+    def form_valid(self, form):
+        form.save()  # save the user
+        return super().form_valid(form)
+
+
+@login_required
+def profile_view(request):
+    return render(request, 'user/profile.html')
