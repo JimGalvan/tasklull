@@ -16,6 +16,11 @@ def index(request):
 class Login(LoginView):
     template_name = 'user/login.html'
 
+    def form_invalid(self, form):
+        # Add a non-field error
+        form.add_error(None, "Incorrect username or password.")
+        return super().form_invalid(form)
+
 
 class RegisterView(FormView):
     form_class = RegisterForm
