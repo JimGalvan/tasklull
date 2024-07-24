@@ -89,7 +89,11 @@ def edit_todo_list(request, list_id):
 
 @login_required
 def add_todo_list(request):
-    ToDoList.objects.create(user=request.user, name=request.POST.get('list_name'))
+    list_name = request.POST.get('list_name')
+
+    if list_name:
+        ToDoList.objects.create(user=request.user, name=list_name)
+
     todo_lists = ToDoList.objects.filter(user=request.user, is_hidden=False)
     todo_lists.order_by('-created_at')
     todo_lists.order_by('order')

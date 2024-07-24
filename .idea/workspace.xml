@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91de027b-1d5c-4c8f-82bd-c169c67f91f0" name="Changes" comment="drag and dropping of todo lists">
-      <change afterPath="$PROJECT_DIR$/todo/views/__init__.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todo/views/todo_list_views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todo/views/todo_views.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/todo/views/user_views.py" afterDir="false" />
+    <list default="true" id="91de027b-1d5c-4c8f-82bd-c169c67f91f0" name="Changes" comment="refactor project structure">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/views.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/views/todo_list_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/views/todo_list_views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -339,7 +334,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721797274856</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="refactor project structure">
+      <option name="closed" value="true" />
+      <created>1721798161636</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1721798161636</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,7 +362,8 @@
     <MESSAGE value="refactor names" />
     <MESSAGE value="fix to navbar" />
     <MESSAGE value="drag and dropping of todo lists" />
-    <option name="LAST_COMMIT_MESSAGE" value="drag and dropping of todo lists" />
+    <MESSAGE value="refactor project structure" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor project structure" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TaskLull$base.coverage" NAME="base Coverage Results" MODIFIED="1721709426918" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/todo_app/settings" />
