@@ -54,3 +54,5 @@ DATABASES = {
         'PORT': db_port,  # Set to empty string for default.
     }
 }
+
+DEBUG = True
