@@ -34,21 +34,17 @@
                         class="px-2 py-1 ml-2 rounded dark:bg-green-500 bg-green-500 text-white hover:dark:bg-green-600 hover:bg-green-600">
                     {% include 'todo/icons/complete-icon.html' %}
                 </button>
-                <button id="edit-todo" @click="showEditModal = true" type="button"
-                        class="px-2 py-1 ml-2 rounded dark:bg-blue-500 bg-blue-500 text-white hover:dark:bg-blue-600 hover:bg-blue-600">
-                    {% include 'todo/icons/edit-icon.html' %}
-                </button>
             {% else %}
                 <button id="uncomplete-todo" type="button"
                         hx-post="{% url 'toggle_todo' list_id=todo_list.pk todo_id=task.pk %}" hx-target="#todos"
                         class="px-2 py-1 ml-2 rounded dark:bg-yellow-500 bg-yellow-500 text-white hover:dark:bg-yellow-600 hover:bg-yellow-600">
                     {% include 'todo/icons/uncomplete-icon.html' %}
                 </button>
-                <button id="edit-todo" @click="showEditModal = true" type="button"
-                        class="px-2 py-1 ml-2 rounded dark:bg-blue-500 bg-blue-500 text-white hover:dark:bg-blue-600 hover:bg-blue-600">
-                    {% include 'todo/icons/edit-icon.html' %}
-                </button>
             {% endif %}
+            <button id="edit-todo" @click="showEditModal = true" type="button"
+                    class="px-2 py-1 ml-2 rounded dark:bg-blue-500 bg-blue-500 text-white hover:dark:bg-blue-600 hover:bg-blue-600">
+                {% include 'todo/icons/edit-icon.html' %}
+            </button>
         </div>
         <span class="px-2 overflow-hidden text-ellipsis">
             {{ task.title }}

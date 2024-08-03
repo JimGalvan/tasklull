@@ -1,4 +1,4 @@
-<div x-data="{ showEditModal: false, selected: false }"
+<div x-data="{ timer: null, showEditModal: false, selected: false }"
      x-init="$watch('showEditModal', new_value => {htmx.process(htmx.find('#edit-list-modal'))})"
 >
     <input type='hidden' name='todo_list_order' value='{{ todo_list.pk }}'/>
