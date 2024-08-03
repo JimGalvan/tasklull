@@ -4,10 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91de027b-1d5c-4c8f-82bd-c169c67f91f0" name="Changes" comment="temp change">
+    <list default="true" id="91de027b-1d5c-4c8f-82bd-c169c67f91f0" name="Changes" comment="refactor and fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/todo/partials/todo-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/todo/partials/todo-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/todo/partials/todo.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/todo/partials/todo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/views/todo_list_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/views/todo_list_views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/views/todo_views.py" beforeDir="false" afterPath="$PROJECT_DIR$/todo/views/todo_views.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -139,7 +139,7 @@
       <workItem from="1721445682073" duration="7167000" />
       <workItem from="1721880756395" duration="4116000" />
       <workItem from="1721886712335" duration="5272000" />
-      <workItem from="1722495417073" duration="1793000" />
+      <workItem from="1722495417073" duration="2541000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -405,7 +405,15 @@
       <option name="project" value="LOCAL" />
       <updated>1721885717971</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="refactor and fixes">
+      <option name="closed" value="true" />
+      <created>1722665780821</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1722665780821</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -429,9 +437,10 @@
     <MESSAGE value="add login validation" />
     <MESSAGE value="workspace.xml" />
     <MESSAGE value="temp change" />
-    <option name="LAST_COMMIT_MESSAGE" value="temp change" />
+    <MESSAGE value="refactor and fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor and fixes" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/TaskLull$manage.coverage" NAME="manage Coverage Results" MODIFIED="1722665577318" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
+    <SUITE FILE_PATH="coverage/TaskLull$manage.coverage" NAME="manage Coverage Results" MODIFIED="1722665744077" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
   </component>
 </project>

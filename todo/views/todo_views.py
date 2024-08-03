@@ -7,6 +7,15 @@ from todo.models import ToDoList, ToDoTask
 
 @login_required
 def add_todo(request, list_id):
+    # limit list size to 50
+    user = request.user
+    todo_list = get_object_or_404(ToDoList, id=list_id, user=user)
+    todos = todo_list.tasks.all()
+
+    # TODO: Add a message to the user that the list is full
+    if todos.count() >= 50:
+        return render(request, 'todo/partials/todos.html', {'todo_list_items': todos, 'todo_list': todo_list})
+
     text = request.POST.get('todo')
     todos = None
     todo_list = None

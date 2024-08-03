@@ -89,6 +89,15 @@ def edit_todo_list(request, list_id):
 
 @login_required
 def add_todo_list(request):
+    # limit the number of todo lists to 5
+    # TODO - add a message to the user
+    todo_lists = ToDoList.objects.filter(user=request.user, is_hidden=False)
+    todo_lists.order_by('-created_at')
+    todo_lists.order_by('order')
+
+    if todo_lists.count() >= 10:
+        return render(request, 'todo/todo-lists.html', {'todo_lists': todo_lists})
+
     list_name = request.POST.get('list_name')
 
     if list_name:
