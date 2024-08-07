@@ -7,8 +7,11 @@
         </div>
     {% else %}
         <div class="w-full max-w-xs mx-auto mt-5">
-            <h1 class="text-2xl font-bold mb-6 text-center">Welcome to To-Do app!</h1>
-            <p class="mb-4 text-center">Please register or log in to continue.</p>
+            <h1 class="text-2xl font-bold mb-3 text-center">Welcome to TaskLull!</h1>
+            <p class="mb-3 text-center">With TaskLull, you can easily organize your todos and stay on top of your tasks.
+                Stay organized and boost your productivity!</p>
+            <p class="mb-3 text-center">Please register or log in to
+                continue.</p>
             {% if user.is_authenticated %}
                 <p class="text-center">You are logged in as {{ user.username }}.</p>
             {% else %}
