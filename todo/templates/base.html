@@ -34,7 +34,6 @@
                 });
             }
         })
-
     </script>
     <style>
         [x-cloak] {
@@ -48,6 +47,17 @@
             -ms-user-select: none;
         }
 
+        /* Ensure footer is at the bottom */
+        html, body {
+            height: 100%;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+        }
+
+        body > .container {
+            flex: 1;
+        }
     </style>
 </head>
 {% include 'todo/layout/navbar.html' %}
@@ -57,5 +67,12 @@
         {% block content %}{% endblock %}
     </div>
 </div>
+<footer class="bg-gray-200 dark:bg-gray-700 text-center py-4 mt-8">
+    <p class="text-gray-700 dark:text-gray-300 pl-2 pr-2">
+        Created by Jim Galvan. Visit my
+        <a href="https://jimgalvan.github.io" class="text-blue-500 hover:text-blue-700">website</a>.
+        &nbsp;&copy; 2023 Jim Galvan.
+    </p>
+</footer>
 </body>
 </html>
