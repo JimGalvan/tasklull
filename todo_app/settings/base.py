@@ -8,6 +8,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
+ALLOWED_HOSTS = ['tasklull.com', 'www.tasklull.com']
+
 INSTALLED_APPS = [
     'django.contrib.admin',
     'django.contrib.auth',
