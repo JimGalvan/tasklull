@@ -8,7 +8,7 @@
         {% endfor %}
     </form>
     <form class="sortable" hx-post="{% url 'sort_todo_lists'  %}" hx-trigger="end"
-          hx-target="#shared-todo-lists">
+          hx-target="#todo-lists">
         <h3 class="text-lg font-semibold text-gray-800 mt-8 mb-4">Shared Lists</h3>
         {% csrf_token %}
         {% for todo_list in todo_lists %}

@@ -133,6 +133,7 @@ def todo_lists(request):
 @login_required
 def sort_todo_lists(request):
     todo_lists_pks_order = request.POST.getlist('todo_list_order')
+    shared_lists_pks_order = request.POST.getlist('shared_list_order')
     todo_lists = ToDoList.objects.filter(user=request.user, is_hidden=False)
 
     sorted_todo_lists = []
@@ -143,7 +144,22 @@ def sort_todo_lists(request):
         todo_list.save()
         sorted_todo_lists.append(todo_list)
 
-    sorted_todo_lists = add_shared_lists(request, sorted_todo_lists)
+    # sort shared lists
+    shared_sorted_todo_lists = []
+
+    user = TaskLullUser.objects.get(username=request.user)
+    user_shared_lists = SharedList.objects.filter(shared_with=user)
+
+    for idx, shared_todo_list_pk in enumerate(shared_lists_pks_order, start=1):
+        try:
+            shared_todo_list = user_shared_lists.get(pk=shared_todo_list_pk)
+            shared_todo_list.order = idx
+            shared_todo_list.save()
+            shared_sorted_todo_lists.append(shared_todo_list)
+        except SharedList.DoesNotExist:
+            pass
+
+    sorted_todo_lists = add_shared_lists(request, shared_sorted_todo_lists)
     return render(request, 'todo/todo-lists.html', {'todo_lists': sorted_todo_lists})
 
 
@@ -171,6 +187,6 @@ def share_todo_list(request, list_id):
     todo_list.save()
 
     second_user.shared_lists.add(todo_list)
-
     items = ToDoList.objects.filter(user=request.user, is_hidden=False)
+    items = add_shared_lists(request, items)
     return render(request, 'todo/todo-lists.html', {'todo_lists': items})
