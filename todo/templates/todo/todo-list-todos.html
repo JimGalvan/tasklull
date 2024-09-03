@@ -1,31 +1,55 @@
-<div x-data="{ addTodoTaskDialogOpen : false, activeTab: 'todos' }">
+<div x-data="{
+                addTodoTaskDialogOpen: false,
+                activeTab: 'todos',
+                updateContent() {
+                    fetch('{% url 'todo_list_tasks' todo_list.pk %}')
+                    .then(response => response.text())
+                    .then(html => {
+                        if (this.$refs.todoListContainer) {
+                            this.$refs.todoListContainer.innerHTML = html;
+                            Alpine.morph(this.$refs.todoListContainer, html);
+                        } else {
+                            console.error('todoListContainer reference is not defined.');
+                        }
+                    });
+                }
+            }"
+     id="todo-list-container"
+     x-ref="todoListContainer">
 
-        <div class="flex justify-between items-center mb-4">
-            <h1 class="text-2xl font-bold mb-4">{{ todo_list.name }}</h1>
+    <div class="flex justify-between items-center mb-4">
+        <h1 class="text-2xl font-bold mb-4">{{ todo_list.name }}</h1>
+        <div class="flex gap-2">
+            {% if todo_list.is_shared %}
+            <button @click="updateContent"
+                    class="rounded px-4 py-2 bg-blue-500 text-white hover:bg-blue-400">
+                Refresh
+            </button>
+            {% endif %}
             <button @click="addTodoTaskDialogOpen = ! addTodoTaskDialogOpen" id="open-modal"
                     class="rounded px-4 py-2 bg-green-500 text-white hover:bg-green-400 whitespace-nowrap min-w-[100px] max-w-[200px]">
                 Add Todo
             </button>
         </div>
+    </div>
 
-        <div class="flex mb-4">
-            <button @click="activeTab = 'todos'" id="todos-tab"
-                    class="flex-grow px-4 py-2 rounded-l-lg"
-                    :class="{'bg-blue-500 text-white': activeTab === 'todos', 'bg-gray-300 text-gray-800': activeTab !== 'todos'}">
-                Todos
-            </button>
-            <button @click="activeTab = 'completed'" id="completed-tab"
-                    class="flex-grow px-4 py-2 rounded-r-lg"
-                    :class="{'bg-blue-500 text-white': activeTab === 'completed', 'bg-gray-300 text-gray-800': activeTab !== 'completed'}">
-                Completed
-            </button>
-        </div>
+    <div class="flex mb-4">
+        <button @click="activeTab = 'todos'" id="todos-tab"
+                class="flex-grow px-4 py-2 rounded-l-lg"
+                :class="{'bg-blue-500 text-white': activeTab === 'todos', 'bg-gray-300 text-gray-800': activeTab !== 'todos'}">
+            Todos
+        </button>
+        <button @click="activeTab = 'completed'" id="completed-tab"
+                class="flex-grow px-4 py-2 rounded-r-lg"
+                :class="{'bg-blue-500 text-white': activeTab === 'completed', 'bg-gray-300 text-gray-800': activeTab !== 'completed'}">
+            Completed
+        </button>
+    </div>
 
-        <!-- Todo Tasks -->
-        {% include 'todo/partials/todos.html' %}
+    <!-- Todo Tasks -->
+    {% include 'todo/partials/todos.html' %}
 
-        <div x-cloak x-show="addTodoTaskDialogOpen">
-            {% include 'todo/modals/add_todo_task_modal.html' %}
-        </div>
+    <div x-cloak x-show="addTodoTaskDialogOpen">
+        {% include 'todo/modals/add_todo_task_modal.html' %}
     </div>
 </div>
