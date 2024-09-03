@@ -5,6 +5,7 @@ from django.db.models import F
 
 
 class TaskLullUser(AbstractUser):
+    shared_lists = models.ManyToManyField('ToDoList', related_name='shared_with_users', blank=True)
 
     def save(self, *args, **kwargs):
         if TaskLullUser.objects.filter(username__exact=self.username).exclude(pk=self.pk).exists():
@@ -25,6 +26,8 @@ class ToDoList(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     is_main = models.BooleanField(default=False)
     order = models.PositiveIntegerField(default=0)
+    is_shared = models.BooleanField(default=False)
+    shared_list = models.ForeignKey('SharedList', on_delete=models.CASCADE, blank=True, null=True)
 
     def __str__(self):
         return self.name
@@ -65,3 +68,22 @@ class ToDoTask(models.Model):
             # Directly update sort_timestamp in the database to match updated_at
             # without triggering another save operation
             ToDoTask.objects.filter(pk=self.pk).update(sort_timestamp=F('updated_at'))
+
+
+class SharedList(models.Model):
+    todo_list = models.ForeignKey(ToDoList, on_delete=models.CASCADE, null=True)
+    shared_with = models.ForeignKey(TaskLullUser, on_delete=models.CASCADE)
+    shared_by = models.ForeignKey(TaskLullUser, related_name='shared_by', on_delete=models.CASCADE)
+    shared_at = models.DateTimeField(auto_now_add=True)
+    order = models.PositiveIntegerField(default=0)
+    sort_timestamp = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f"{self.todo_list} shared with {self.shared_with}"
+
+    def save(self, *args, **kwargs):
+        update_sort_timestamp = kwargs.pop('update_sort_timestamp', True)
+        super(SharedList, self).save(*args, **kwargs)
+        if update_sort_timestamp:
+            SharedList.objects.filter(pk=self.pk).update(sort_timestamp=models.F('shared_at'))

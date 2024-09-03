@@ -9,7 +9,7 @@ from todo.models import ToDoList, ToDoTask
 def add_todo(request, list_id):
     # limit list size to 50
     user = request.user
-    todo_list = get_object_or_404(ToDoList, id=list_id, user=user)
+    todo_list = get_object_or_404(ToDoList, id=list_id)
     todos = todo_list.tasks.all()
 
     # TODO: Add a message to the user that the list is full
@@ -22,7 +22,7 @@ def add_todo(request, list_id):
 
     if text:
         user = request.user
-        todo_list = get_object_or_404(ToDoList, id=list_id, user=user)
+        todo_list = get_object_or_404(ToDoList, id=list_id)
         todo_list.tasks.create(list=list_id, title=text)
         todos = todo_list.tasks.all()
 

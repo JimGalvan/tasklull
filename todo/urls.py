@@ -22,6 +22,7 @@ todo_list_urlpatterns = [
     path('todo-lists/<int:list_id>/delete/', todo_list_views.delete_todo_list, name='delete_todo_list'),
     path('todo-lists/<int:list_id>/edit/', todo_list_views.edit_todo_list, name='edit_todo_list'),
     path('todo-lists/add/', todo_list_views.add_todo_list, name='add_todo_list'),
+    path('todo-lists/<int:list_id>/share/', todo_list_views.share_todo_list, name='share_todo_list'),
 ]
 
 urlpatterns += todo_list_urlpatterns

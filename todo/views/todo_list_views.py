@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import QueryDict
 from django.shortcuts import render, get_object_or_404, redirect
 
-from todo.models import ToDoList
+from todo.models import ToDoList, SharedList, TaskLullUser
 
 
 @login_required
@@ -17,7 +17,8 @@ def set_main_todo_list(request, list_id):
 
 @login_required
 def todo_list_todos(request, list_id):
-    todo_list = get_object_or_404(ToDoList, id=list_id, user=request.user)
+    todo_list = get_object_or_404(ToDoList, id=list_id)
+
     todos = todo_list.tasks.all()
 
     # sort by updated_at field in descending order
@@ -106,7 +107,18 @@ def add_todo_list(request):
     todo_lists = ToDoList.objects.filter(user=request.user, is_hidden=False)
     todo_lists.order_by('-created_at')
     todo_lists.order_by('order')
+
+    # add shared lists
+    todo_lists = add_shared_lists(request, todo_lists)
+
     return render(request, 'todo/todo-lists.html', {'todo_lists': todo_lists})
+
+
+def add_shared_lists(request, todo_lists):
+    shared_lists = SharedList.objects.filter(shared_with=request.user)
+    for shared_list in shared_lists:
+        todo_lists = todo_lists | ToDoList.objects.filter(pk=shared_list.todo_list.pk)
+    return todo_lists
 
 
 @login_required
@@ -114,6 +126,7 @@ def todo_lists(request):
     items = ToDoList.objects.filter(user=request.user, is_hidden=False)
     items = items.order_by('-created_at')
     items = items.order_by('order')
+    items = add_shared_lists(request, items)
     return render(request, 'todo/todo-lists-view.html', {'todo_lists': items})
 
 
@@ -130,6 +143,7 @@ def sort_todo_lists(request):
         todo_list.save()
         sorted_todo_lists.append(todo_list)
 
+    sorted_todo_lists = add_shared_lists(request, sorted_todo_lists)
     return render(request, 'todo/todo-lists.html', {'todo_lists': sorted_todo_lists})
 
 
@@ -138,4 +152,25 @@ def todo_list_view(request):
     items = ToDoList.objects.filter(user=request.user, is_hidden=False)
     items = items.order_by('-created_at')
     items = items.order_by('order')
+    items = add_shared_lists(request, items)
     return render(request, 'todo/todo-lists-view.html', {'todo_lists': items})
+
+
+@login_required
+def share_todo_list(request, list_id):
+    user_to_share_with = request.POST.get('user_to_share_with')
+    todo_list = get_object_or_404(ToDoList, id=list_id, user=request.user)
+
+    second_user = get_object_or_404(TaskLullUser, username=user_to_share_with)
+    if not second_user:
+        return None
+
+    shared_list = SharedList.objects.create(todo_list=todo_list, shared_with=second_user, shared_by=request.user)
+    todo_list.shared_list = shared_list
+    todo_list.is_shared = True
+    todo_list.save()
+
+    second_user.shared_lists.add(todo_list)
+
+    items = ToDoList.objects.filter(user=request.user, is_hidden=False)
+    return render(request, 'todo/todo-lists.html', {'todo_lists': items})

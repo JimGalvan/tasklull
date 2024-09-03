@@ -1,6 +1,22 @@
-<form id="todo-lists" class="sortable" hx-post="{% url 'sort_todo_lists'  %}" hx-trigger="end" hx-target="#todo-lists">
+<div id="todo-lists">
+    <form class="sortable" hx-post="{% url 'sort_todo_lists'  %}" hx-trigger="end" hx-target="#todo-lists">
     {% csrf_token %}
     {% for todo_list in todo_lists %}
+        {% if not todo_list.is_shared %}
         {% include 'todo/partials/todo-list.html' %}
+        {% endif %}
+        {% endfor %}
+    </form>
+    <form class="sortable" hx-post="{% url 'sort_todo_lists'  %}" hx-trigger="end"
+          hx-target="#shared-todo-lists">
+        <h3 class="text-lg font-semibold text-gray-800 mt-8 mb-4">Shared Lists</h3>
+        {% csrf_token %}
+        {% for todo_list in todo_lists %}
+        {% if todo_list.is_shared %}
+        {% with shared_list=todo_list.shared_list %}
+        {% include 'todo/partials/shared-todo-list.html' %}
+        {% endwith %}
+        {% endif %}
     {% endfor %}
 </form>
+</div>
