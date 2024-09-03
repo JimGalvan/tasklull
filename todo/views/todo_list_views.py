@@ -46,7 +46,7 @@ def hide_todo_list(request, list_id):
 @login_required
 def sort_todos(request, list_id):
     todo_pks_order = request.POST.getlist('todo_order')
-    todo_list = get_object_or_404(ToDoList, id=list_id, user=request.user)
+    todo_list = get_object_or_404(ToDoList, id=list_id)
     todos = todo_list.tasks.all()
 
     sorted_todos = []
