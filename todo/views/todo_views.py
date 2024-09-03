@@ -42,7 +42,7 @@ def add_todo(request, list_id):
 @login_required
 def toggle_todo(request, list_id, todo_id):
     user = request.user
-    todo_list = user.todolists.get(id=list_id)
+    todo_list = ToDoList.objects.get(id=list_id)
     todo = todo_list.tasks.get(id=todo_id)
 
     if todo.status == ToDoTask.TODO:
@@ -65,8 +65,7 @@ def toggle_todo(request, list_id, todo_id):
 
 @login_required
 def delete_todo(request, list_id, todo_id):
-    user = request.user
-    todo_list = user.todolists.get(id=list_id)
+    todo_list = ToDoList.objects.get(id=list_id)
     todo = todo_list.tasks.get(id=todo_id)
 
     todo.delete()
@@ -90,7 +89,7 @@ def edit_todo(request, list_id, todo_id):
     data = QueryDict(request.body)
     text = data.get('todo')
 
-    todo_list = get_object_or_404(ToDoList, id=list_id, user=request.user)
+    todo_list = get_object_or_404(ToDoList, id=list_id)
     todos = todo_list.tasks.all()
     todo = todos.get(id=todo_id)
 
