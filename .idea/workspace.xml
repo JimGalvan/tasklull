@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91de027b-1d5c-4c8f-82bd-c169c67f91f0" name="Changes" comment="fix to todos afte refreshing">
+    <list default="true" id="91de027b-1d5c-4c8f-82bd-c169c67f91f0" name="Changes" comment="add tabs">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/templates/todo/partials/shared-todo-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/todo/partials/shared-todo-list.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/templates/todo/partials/todo-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/todo/partials/todo-list.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/todo/templates/todo/todo-lists.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/todo/todo-lists.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -142,7 +145,7 @@
       <workItem from="1721880756395" duration="4116000" />
       <workItem from="1721886712335" duration="5272000" />
       <workItem from="1722495417073" duration="2541000" />
-      <workItem from="1725318839380" duration="17905000" />
+      <workItem from="1725318839380" duration="18340000" />
     </task>
     <task id="LOCAL-00001" summary="initial commit">
       <option name="closed" value="true" />
@@ -504,7 +507,15 @@
       <option name="project" value="LOCAL" />
       <updated>1725418135645</updated>
     </task>
-    <option name="localTasksCounter" value="46" />
+    <task id="LOCAL-00046" summary="add tabs">
+      <option name="closed" value="true" />
+      <created>1725418384137</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1725418384137</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -549,7 +560,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="updated settings" />
     <MESSAGE value="update django.config" />
     <MESSAGE value="update settings" />
     <MESSAGE value="update deployment" />
@@ -574,7 +584,8 @@
     <MESSAGE value="add refresh button" />
     <MESSAGE value="update todcs views" />
     <MESSAGE value="fix to todos afte refreshing" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix to todos afte refreshing" />
+    <MESSAGE value="add tabs" />
+    <option name="LAST_COMMIT_MESSAGE" value="add tabs" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TaskLull$manage.coverage" NAME="manage Coverage Results" MODIFIED="1725337985512" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
