@@ -6,7 +6,6 @@
                     .then(response => response.text())
                     .then(html => {
                         if (this.$refs.todoListContainer) {
-                            this.$refs.todoListContainer.innerHTML = html;
                             Alpine.morph(this.$refs.todoListContainer, html);
                         } else {
                             console.error('todoListContainer reference is not defined.');
