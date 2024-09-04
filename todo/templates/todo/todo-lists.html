@@ -1,22 +1,41 @@
-<div id="todo-lists">
-    <form class="sortable" hx-post="{% url 'sort_todo_lists'  %}" hx-trigger="end" hx-target="#todo-lists">
-    {% csrf_token %}
-    {% for todo_list in todo_lists %}
-        {% if not todo_list.is_shared %}
-        {% include 'todo/partials/todo-list.html' %}
-        {% endif %}
-        {% endfor %}
-    </form>
-    <form class="sortable" hx-post="{% url 'sort_todo_lists'  %}" hx-trigger="end"
-          hx-target="#todo-lists">
-        <h3 class="text-lg font-semibold text-gray-800 mt-8 mb-4">Shared Lists</h3>
-        {% csrf_token %}
-        {% for todo_list in todo_lists %}
-        {% if todo_list.is_shared %}
-        {% with shared_list=todo_list.shared_list %}
-        {% include 'todo/partials/shared-todo-list.html' %}
-        {% endwith %}
-        {% endif %}
-    {% endfor %}
-</form>
+<div x-data="{ activeTab: 'myLists' }">
+    <div class="flex mb-4">
+        <button @click="activeTab = 'myLists'" id="my-lists-tab"
+                class="flex-grow px-4 py-2 rounded-l-lg"
+                :class="{ 'bg-blue-500 text-white': activeTab === 'myLists', 'bg-gray-300 text-gray-800': activeTab !== 'myLists' }">
+            My Lists
+        </button>
+        <button @click="activeTab = 'sharedLists'" id="shared-lists-tab"
+                class="flex-grow px-4 py-2 rounded-r-lg"
+                :class="{ 'bg-blue-500 text-white': activeTab === 'sharedLists', 'bg-gray-300 text-gray-800': activeTab !== 'sharedLists' }">
+            Shared Lists
+        </button>
+    </div>
+
+    <div id="todo-lists">
+        <div x-show="activeTab === 'myLists'">
+            <form class="sortable" hx-post="{% url 'sort_todo_lists' %}" hx-trigger="end" hx-target="#todo-lists">
+                {% csrf_token %}
+                {% for todo_list in todo_lists %}
+                {% if not todo_list.is_shared %}
+                {% include 'todo/partials/todo-list.html' %}
+                {% endif %}
+                {% endfor %}
+            </form>
+        </div>
+
+        <div x-show="activeTab === 'sharedLists'">
+            <form class="sortable" hx-post="{% url 'sort_todo_lists' %}" hx-trigger="end" hx-target="#todo-lists">
+                <h3 class="text-lg font-semibold text-gray-800 mt-8 mb-4">Shared Lists</h3>
+                {% csrf_token %}
+                {% for todo_list in todo_lists %}
+                {% if todo_list.is_shared %}
+                {% with shared_list=todo_list.shared_list %}
+                {% include 'todo/partials/shared-todo-list.html' %}
+                {% endwith %}
+                {% endif %}
+                {% endfor %}
+            </form>
+        </div>
+    </div>
 </div>
