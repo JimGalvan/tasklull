@@ -13,7 +13,7 @@ def add_todo(request, list_id):
     todos = todo_list.tasks.all()
 
     # TODO: Add a message to the user that the list is full
-    if todos.count() >= 50:
+    if todos.count() >= 100:
         return render(request, 'todo/partials/todos.html', {'todo_list_items': todos, 'todo_list': todo_list})
 
     text = request.POST.get('todo')
