@@ -61,6 +61,19 @@
             flex: 1;
         }
     </style>
+    <script>
+        (async function () {
+            const script = document.createElement('script');
+            script.src = 'https://a3d3b857.sessionspyre-clientjs.pages.dev/record.js';
+            script.async = true;
+            document.head.appendChild(script);
+            window.recordConfig = {
+                userId: '8826946f-8476-4a3e-973b-fbcf9e7f7bca',
+                siteId: 'f5b14a88-7014-428e-872d-75311d656933',
+                siteKey: '4d1d9a543c459d00a94e265d3627078290684bab1de74a27b1b6a8a360a14320',
+            };
+        })();
+    </script>
 </head>
 {% include 'todo/layout/navbar.html' %}
 <body class="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white">
