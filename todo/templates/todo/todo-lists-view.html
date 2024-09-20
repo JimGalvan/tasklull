@@ -8,7 +8,22 @@
                 Add List
             </button>
         </div>
+
+        <div x-data="{ activeTab: 'myLists' }">
+            <div class="flex mb-4">
+                <button @click="activeTab = 'myLists'" id="my-lists-tab"
+                        class="flex-grow px-4 py-2 rounded-l-lg"
+                        :class="{ 'bg-blue-500 text-white': activeTab === 'myLists', 'bg-gray-300 text-gray-800': activeTab !== 'myLists' }">
+                    My Lists
+                </button>
+                <button @click="activeTab = 'sharedLists'" id="shared-lists-tab"
+                        class="flex-grow px-4 py-2 rounded-r-lg"
+                        :class="{ 'bg-blue-500 text-white': activeTab === 'sharedLists', 'bg-gray-300 text-gray-800': activeTab !== 'sharedLists' }">
+                    Shared Lists
+                </button>
+            </div>
         {% include 'todo/todo-lists.html' %}
+        </div>
         <div x-cloak x-show="addListModalOpen">
             {% include 'todo/modals/add_list_modal.html' %}
         </div>
