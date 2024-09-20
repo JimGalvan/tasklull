@@ -17,7 +17,38 @@ class TaskLullUser(AbstractUser):
         super().save(*args, **kwargs)
 
 
+class FlexItem(models.Model):
+    title = models.CharField(max_length=100)
+    description = models.TextField(blank=True, null=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    order = models.PositiveIntegerField(default=0)
+    sort_timestamp = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.title
+
+    def save(self, *args, **kwargs):
+        update_sort_timestamp = kwargs.pop('update_sort_timestamp', True)
+
+        # Call the superclass's save method first to update updated_at
+        super(FlexItem, self).save(*args, **kwargs)
+
+        if update_sort_timestamp:
+            # Directly update sort_timestamp in the database to match updated_at
+            # without triggering another save operation
+            FlexItem.objects.filter(pk=self.pk).update(sort_timestamp=F('updated_at'))
+
 class ToDoList(models.Model):
+    TODO_LIST = 'TODO_LIST'
+    FLEX_LIST = 'FLEX_LIST'
+
+    LIST_TYPE_CHOICES = [
+        (TODO_LIST, 'To Do List'),
+        (FLEX_LIST, 'Flex List'),
+    ]
+
+    type = models.CharField(max_length=20, choices=LIST_TYPE_CHOICES, default='TODO_LIST')
     user = models.ForeignKey(TaskLullUser, on_delete=models.CASCADE, related_name='todolists')
     name = models.CharField(max_length=100)
     is_default = models.BooleanField(default=False)
@@ -40,12 +71,22 @@ class ToDoTask(models.Model):
     TODO = 'TODO'
     TO_COMPLETE = 'TO_COMPLETE'
     COMPLETE = 'COMPLETE'
+
     STATUS_CHOICES = [
         (TODO, 'To Do'),
         (TO_COMPLETE, 'To Complete'),
         (COMPLETE, 'Complete'),
     ]
 
+    FLEX_ITEM = 'FLEX_ITEM'
+    TODO_ITEM = 'TODO_ITEM'
+
+    TYPE_CHOICES = [
+        (FLEX_ITEM, 'Flex Item'),
+        (TODO_ITEM, 'To Do Item'),
+    ]
+
+    type = models.CharField(max_length=20, choices=TYPE_CHOICES, default=TODO_ITEM)
     list = models.ForeignKey(ToDoList, related_name='tasks', on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     description = models.TextField(blank=True, null=True)
@@ -54,6 +95,7 @@ class ToDoTask(models.Model):
     updated_at = models.DateTimeField(auto_now=True)
     order = models.PositiveIntegerField(default=0)
     sort_timestamp = models.DateTimeField(auto_now_add=True)
+    sub_items = models.ManyToManyField(FlexItem, blank=True)
 
     def __str__(self):
         return self.title

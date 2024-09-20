@@ -2,7 +2,7 @@ from django.contrib.auth.decorators import login_required
 from django.http import QueryDict
 from django.shortcuts import render, get_object_or_404
 
-from todo.models import ToDoList, ToDoTask
+from todo.models import ToDoList, ToDoTask, FlexItem
 
 
 @login_required
@@ -17,13 +17,17 @@ def add_todo(request, list_id):
         return render(request, 'todo/partials/todos.html', {'todo_list_items': todos, 'todo_list': todo_list})
 
     text = request.POST.get('todo')
+    item_type = request.POST.get('item_type')
     todos = None
     todo_list = None
 
     if text:
         user = request.user
         todo_list = get_object_or_404(ToDoList, id=list_id)
-        todo_list.tasks.create(list=list_id, title=text)
+        if item_type == 'FLEX_ITEM':
+            todo_list.tasks.create(list=list_id, title=text, type=ToDoTask.FLEX_ITEM)
+        else:
+            todo_list.tasks.create(list=list_id, title=text)
         todos = todo_list.tasks.all()
 
     # sort by updated_at field in descending order
@@ -107,3 +111,38 @@ def edit_todo(request, list_id, todo_id):
     }
 
     return render(request, 'todo/partials/todos.html', context)
+
+
+def flex_item(request, list_id, todo_id):
+    item = ToDoTask.objects.get(id=todo_id)
+    list = ToDoList.objects.get(id=list_id)
+    context = {
+        'item': item,
+        'list': list,
+    }
+    return render(request, 'todo/partials/flex-item.html', context)
+
+
+def add_sub_item(request, list_id, todo_id):
+    data = QueryDict(request.body)
+    text = data.get('title')
+    list = ToDoList.objects.get(id=list_id)
+    item = ToDoTask.objects.get(id=todo_id, list=list_id)
+    sub_item = FlexItem.objects.create(title=text)
+    item.sub_items.add(sub_item)
+    context = {
+        'item': item,
+        'list': list,
+    }
+    return render(request, 'todo/partials/flex-item.html', context)
+
+
+def delete_sub_item(request, list_id, todo_id, sub_item_id):
+    item = ToDoTask.objects.get(id=todo_id, list_id=list_id)
+    sub_item = item.sub_items.get(id=sub_item_id)
+    sub_item.delete()
+    context = {
+        'item': item,
+        'list': ToDoList.objects.get(id=list_id),
+    }
+    return render(request, 'todo/partials/flex-item.html', context)

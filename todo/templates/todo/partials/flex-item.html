@@ -1,0 +1,37 @@
+<div id="flex-item-sub-items">
+    <h1 class="text-2xl font-bold text-gray-900">Item</h1>
+    <div class="mt-4">
+        <h3 class="text-lg font-semibold text-gray-800">Sub Items</h3>
+        <ul class="list-disc list-inside" id="sub-items-list">
+            {% for sub_item in item.sub_items.all %}
+            <li class="flex justify-between items-center text-gray-700 py-2 px-4 bg-gray-100 rounded-md mb-2">
+                <span>{{ sub_item.title }}</span>
+                <form method="post"
+                      hx-delete="{% url 'delete_sub_item' list.id item.id sub_item.id %}"
+                      hx-target="#flex-item-sub-items"
+                      hx-swap="outerHTML"
+                      class="inline">
+                    {% csrf_token %}
+                    <button type="submit" class="px-2 py-1 bg-red-500 text-white rounded-md">
+                        Delete
+                    </button>
+                </form>
+            </li>
+            {% endfor %}
+        </ul>
+    </div>
+
+    <div class="mt-4">
+        <form id="add-sub-item-form"
+              hx-post="{% url 'add_sub_item' list.id item.id %}"
+              hx-target="#flex-item-sub-items" hx-swap="innerHTML">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label for="title" class="block text-gray-700">Name</label>
+                <input required type="text" id="title" name="title"
+                       class="border p-2 w-full mb-2">
+            </div>
+            <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded-md">Add Sub Item</button>
+        </form>
+    </div>
+</div>

@@ -4,6 +4,10 @@
         <form hx-post="{% url 'add_todo_list' %}" hx-target="#todo-lists" hx-on--after-request="this.reset()">
             {% csrf_token %}
             <input name="list_name" type="text" id="new-todo" class="border p-2 w-full mb-2" placeholder="Todo">
+            <select name="list_type" id="list-type" class="border p-2 w-full mb-2">
+                <option value="ToDoList">Todo</option>
+                <option value="FlexList">Flex</option>
+            </select>
             <button type="submit" class="px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
                     @click="addListModalOpen = false">
                 Add

@@ -32,6 +32,10 @@ todo_task_urlpatterns = [
     path('todo-lists/<int:list_id>/todo-task/<int:todo_id>/toggle/', todo_views.toggle_todo, name='toggle_todo'),
     path('todo-lists/<int:list_id>/todo-task/<int:todo_id>/delete/', todo_views.delete_todo, name='delete_todo'),
     path('todo-lists/<int:list_id>/todo-task/<int:todo_id>/edit/', todo_views.edit_todo, name='edit_todo'),
+    path('todo-lists/<int:list_id>/todo-task/<int:todo_id>/flex-item/', todo_views.flex_item, name='flex_item'),
+    path('todo-lists/<int:list_id>/todo-task/<int:todo_id>/add-sub-item/',
+         todo_views.add_sub_item, name='add_sub_item'),
+    path('delete_sub_item/<int:list_id>/<int:todo_id>/<int:sub_item_id>/', todo_views.delete_sub_item, name='delete_sub_item'),
 ]
 
 urlpatterns += todo_task_urlpatterns

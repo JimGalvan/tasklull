@@ -100,9 +100,15 @@ def add_todo_list(request):
         return render(request, 'todo/todo-lists.html', {'todo_lists': todo_lists})
 
     list_name = request.POST.get('list_name')
+    list_type = request.POST.get('list_type')
 
     if list_name:
-        ToDoList.objects.create(user=request.user, name=list_name)
+        if list_type == "ToDoList":
+            ToDoList.objects.create(user=request.user, name=list_name, type=ToDoList.TODO_LIST)
+        elif list_type == "FlexList":
+            ToDoList.objects.create(user=request.user, name=list_name, type=ToDoList.FLEX_LIST)
+        else:
+            ToDoList.objects.create(user=request.user, name=list_name)
 
     todo_lists = ToDoList.objects.filter(user=request.user, is_hidden=False)
     todo_lists.order_by('-created_at')
