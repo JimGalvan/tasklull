@@ -39,7 +39,7 @@
             {% if not task.type == "FLEX_ITEM" %}
             {% if task.status == "TODO" %}
             <button id="view-flex-item" type="button"
-                    hx-post="{% url 'flex_item' list_id=todo_list.pk todo_id=task.pk %}" hx-target="#todos"
+                    hx-post="{% url 'toggle_todo' list_id=todo_list.pk todo_id=task.pk %}" hx-target="#todos"
                         class="px-2 py-1 ml-2 rounded dark:bg-green-500 bg-green-500 text-white hover:dark:bg-green-600 hover:bg-green-600">
                     {% include 'todo/icons/complete-icon.html' %}
                 </button>
