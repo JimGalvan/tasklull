@@ -61,33 +61,19 @@
             flex: 1;
         }
     </style>
-    <!--    <script>-->
-    <!--        (async function () {-->
-    <!--            const script = document.createElement('script');-->
-    <!--            script.src = 'https://sessionspyre-clientjs.pages.dev/record.js';-->
-    <!--            script.async = true;-->
-    <!--            document.head.appendChild(script);-->
-    <!--            window.recordConfig = {-->
-    <!--                userId: '8826946f-8476-4a3e-973b-fbcf9e7f7bca',-->
-    <!--                siteId: 'f5b14a88-7014-428e-872d-75311d656933',-->
-    <!--                siteKey: '4d1d9a543c459d00a94e265d3627078290684bab1de74a27b1b6a8a360a14320',-->
-    <!--            };-->
-    <!--        })();-->
-    <!--    </script>-->
-
-    <!--    <script>-->
-    <!--        (async function () {-->
-    <!--            const script = document.createElement('script');-->
-    <!--            script.src = 'http://localhost:8000/static/record.js';-->
-    <!--            script.async = true;-->
-    <!--            document.head.appendChild(script);-->
-    <!--            window.recordConfig = {-->
-    <!--                userId: 'a4c69e84-607e-42d4-8b28-c28def392744',-->
-    <!--                siteId: '5d3a9bfa-613e-4899-a612-fc4f7bbcb912',-->
-    <!--                siteKey: '66bd0899a5a51ac5b04548a461381e30f1601f07f12f89334cccb6c23aeea049',-->
-    <!--            };-->
-    <!--        })();-->
-    <!--    </script>-->
+    <script>
+        (async function () {
+            const script = document.createElement('script');
+            script.src = 'https://sessionspyre-clientjs.pages.dev/record.js';
+            script.async = true;
+            document.head.appendChild(script);
+            window.recordConfig = {
+                userId: '8826946f-8476-4a3e-973b-fbcf9e7f7bca',
+                siteId: 'f5b14a88-7014-428e-872d-75311d656933',
+                siteKey: '4d1d9a543c459d00a94e265d3627078290684bab1de74a27b1b6a8a360a14320',
+            };
+        })();
+    </script>
     <script>
         document.addEventListener("htmx:configRequest", (event) => {
             const csrfToken = document.querySelector('[name=csrfmiddlewaretoken]').value;
