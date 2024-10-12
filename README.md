@@ -1,4 +1,4 @@
-# ToDo List Application
+# TaskLull - ToDo/Agenda List Application
 
 This is a ToDo List application built with Django. It allows users to create, manage, and share to-do lists and tasks.
 
