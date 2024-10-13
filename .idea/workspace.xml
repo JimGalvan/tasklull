@@ -4,14 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="91de027b-1d5c-4c8f-82bd-c169c67f91f0" name="Changes" comment="update script">
-      <change afterPath="$PROJECT_DIR$/todo/templates/todo/icons/sliders.html" afterDir="false" />
+    <list default="true" id="91de027b-1d5c-4c8f-82bd-c169c67f91f0" name="Changes" comment="update icons">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/base.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/base.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/todo/partials/flex-item.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/todo/partials/flex-item.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/todo/partials/shared-todo-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/todo/partials/shared-todo-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/todo/partials/todo-list.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/todo/partials/todo-list.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/todo/templates/user/profile.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/user/profile.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/todo/templates/todo/todo-lists-view.html" beforeDir="false" afterPath="$PROJECT_DIR$/todo/templates/todo/todo-lists-view.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -166,15 +161,7 @@
       <workItem from="1728101484106" duration="2562000" />
       <workItem from="1728264555883" duration="33000" />
       <workItem from="1728707340333" duration="2012000" />
-      <workItem from="1728763753766" duration="1302000" />
-    </task>
-    <task id="LOCAL-00006" summary="update settings">
-      <option name="closed" value="true" />
-      <created>1721463517075</created>
-      <option name="number" value="00006" />
-      <option name="presentableId" value="LOCAL-00006" />
-      <option name="project" value="LOCAL" />
-      <updated>1721463517075</updated>
+      <workItem from="1728763753766" duration="1654000" />
     </task>
     <task id="LOCAL-00007" summary="update settings">
       <option name="closed" value="true" />
@@ -560,7 +547,15 @@
       <option name="project" value="LOCAL" />
       <updated>1726876947562</updated>
     </task>
-    <option name="localTasksCounter" value="55" />
+    <task id="LOCAL-00055" summary="update icons">
+      <option name="closed" value="true" />
+      <created>1728777542500</created>
+      <option name="number" value="00055" />
+      <option name="presentableId" value="LOCAL-00055" />
+      <option name="project" value="LOCAL" />
+      <updated>1728777542500</updated>
+    </task>
+    <option name="localTasksCounter" value="56" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -605,7 +600,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="implement drag and dropping for todo lists" />
     <MESSAGE value="refactor names" />
     <MESSAGE value="fix to navbar" />
     <MESSAGE value="drag and dropping of todo lists" />
@@ -630,7 +624,8 @@
     <MESSAGE value="Fix bug of multiple tabs" />
     <MESSAGE value="fix for toggle" />
     <MESSAGE value="update script" />
-    <option name="LAST_COMMIT_MESSAGE" value="update script" />
+    <MESSAGE value="update icons" />
+    <option name="LAST_COMMIT_MESSAGE" value="update icons" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
     <SUITE FILE_PATH="coverage/TaskLull$manage.coverage" NAME="manage Coverage Results" MODIFIED="1728776801764" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="" />
