@@ -1,3 +1,6 @@
+{% extends 'base.html' %}
+
+{% block content %}
 <div x-data="{
                 addTodoTaskDialogOpen: false,
                 activeTab: 'todos',
@@ -58,3 +61,5 @@
         {% endif %}
     </div>
 </div>
+
+{% endblock %}
