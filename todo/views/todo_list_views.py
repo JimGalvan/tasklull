@@ -1,4 +1,5 @@
 from django.contrib.auth.decorators import login_required
+from django.db import transaction
 from django.http import QueryDict
 from django.shortcuts import render, get_object_or_404, redirect
 
@@ -47,22 +48,23 @@ def hide_todo_list(request, list_id):
 def sort_todos(request, list_id):
     todo_pks_order = request.POST.getlist('todo_order')
     todo_list = get_object_or_404(ToDoList, id=list_id)
-    todos = todo_list.tasks.all()
+    todos = todo_list.tasks.filter(pk__in=todo_pks_order)
 
-    sorted_todos = []
+    # Prepare the todos with new order values
+    with transaction.atomic():
+        for idx, todo_pk in enumerate(todo_pks_order, start=1):
+            todo = todos.get(pk=todo_pk)
+            todo.order = idx
+            todo.save(update_fields=['order'])
 
-    for idx, todo_pk in enumerate(todo_pks_order, start=1):
-        todo = todos.get(pk=todo_pk)
-        todo.order = idx
-        todo.save()
-        sorted_todos.append(todo)
+    # Refetch sorted todos only once for rendering
+    sorted_todos = todo_list.tasks.order_by('order')
 
     context = {
         'todo_list_items': sorted_todos,
         'todo_list': todo_list,
     }
 
-    # Return the rendered template with the context
     return render(request, 'todo/partials/todos.html', context)
 
 
