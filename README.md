@@ -71,4 +71,4 @@ This is a ToDo List application built with Django. It allows users to create, ma
 
 ## License
 
-This project is licensed under the MIT License.
+This project is licensed under the Creative Commons Attribution-NonCommercial 4.0 International Public License.
