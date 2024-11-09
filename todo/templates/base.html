@@ -80,9 +80,35 @@
             event.detail.headers['X-CSRFToken'] = csrfToken;
         });
     </script>
+    <style>
+        .loader {
+            display: none;
+            position: fixed;
+            z-index: 1000;
+            left: 50%;
+            top: 50%;
+            width: 50px;
+            height: 50px;
+            border: 5px solid #f3f3f3;
+            border-top: 5px solid #6366F1;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2), 0 6px 20px rgba(0, 0, 0, 0.19); /* Added shadow */
+        }
+
+        @keyframes spin {
+            0% {
+                transform: rotate(0deg);
+            }
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+    </style>
 </head>
 {% include 'todo/layout/navbar.html' %}
 <body class="bg-gray-100 dark:bg-gray-800 text-gray-900 dark:text-white">
+<div class="loader" id="loadingIndicator"></div>
 <div class="container mx-auto mt-1 p-4 sm:p-8 w-full md:w-3/4 lg:w-1/2">
     <div class="bg-white p-6 rounded-lg shadow-lg" id="page-body">
         {% block content %}{% endblock %}
@@ -97,3 +123,13 @@
 </footer>
 </body>
 </html>
+<script>
+    document.body.addEventListener('htmx:configRequest', function () {
+        loadingIndicator.style.display = 'block';
+    });
+
+    // Hide loader when request completes
+    document.body.addEventListener('htmx:afterRequest', function () {
+        loadingIndicator.style.display = 'none';
+    });
+</script>
