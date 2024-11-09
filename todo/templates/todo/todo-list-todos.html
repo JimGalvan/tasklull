@@ -8,11 +8,9 @@
                     fetch('{% url 'todo_list_tasks' todo_list.pk %}')
                     .then(response => response.text())
                     .then(html => {
-                        if (this.$refs.todoListContainer) {
-                            Alpine.morph(this.$refs.todoListContainer, html);
-                        } else {
-                            console.error('todoListContainer reference is not defined.');
-                        }
+                        document.open();
+                        document.write(html);
+                        document.close();
                     });
                 }
             }"
@@ -23,10 +21,10 @@
         <h1 class="text-3xl font-bold mb-4">{{ todo_list.name }}</h1>
         <div class="flex gap-2">
             {% if todo_list.is_shared %}
-            <button @click="updateContent"
+            <a href="{% url 'todo_list_tasks' todo_list.pk %}"
                     class="rounded px-4 py-2 bg-blue-500 text-white hover:bg-blue-400">
                 Refresh
-            </button>
+            </a>
             {% endif %}
             <button @click="addTodoTaskDialogOpen = ! addTodoTaskDialogOpen" id="open-modal"
                     class="rounded px-4 py-2 bg-green-500 text-white hover:bg-green-400 whitespace-nowrap min-w-[100px] max-w-[200px]">
